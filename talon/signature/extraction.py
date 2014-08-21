@@ -3,8 +3,13 @@
 import os
 import logging
 
+log = logging.getLogger(__name__)
+
 import regex as re
-from PyML import SparseDataSet
+try:
+    from PyML import SparseDataSet
+except ImportError:
+    log.warn("Running without PyML. Not sure if this works.")
 
 from talon.constants import RE_DELIMITER
 from talon.signature.constants import (SIGNATURE_MAX_LINES,
@@ -15,7 +20,6 @@ from talon.signature.bruteforce import get_signature_candidate
 from talon.signature.learning.helpers import has_signature
 
 
-log = logging.getLogger(__name__)
 
 EXTRACTOR = None
 

@@ -1,3 +1,6 @@
+import logging
+logging.basicConfig()
+
 from talon.quotations import register_xpath_extensions
 from talon import signature
 

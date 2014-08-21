@@ -8,7 +8,13 @@ body belongs to the signature.
 import os
 import sys
 
-from PyML import SparseDataSet, SVM
+import logging
+log = logging.getLogger(__name__)
+
+try:
+    from PyML import SparseDataSet, SVM
+except ImportError:
+    log.warn("Running without PyML. Not sure if this works.")
 
 
 def init():
